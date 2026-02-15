@@ -1,0 +1,245 @@
+h1
+{
+    text-transform: capitalize;
+}
+
+h2
+{
+    text-transform: capitalize;
+}
+
+input
+{
+    padding: 0.5rem;
+    flex-grow: 2;
+    background-color: #262626;
+    color: #fff;
+    border-width: 0;
+        font-size: 2rem;
+    border-radius: 0.5rem;
+}
+
+button
+{
+    background-color: #4b4bcd;
+    color: #fff;
+    border-width: 0;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+}
+
+button:hover
+{
+    background-color: #5f5fd3;
+}
+
+button:active
+{
+    background-color: #3737c8;
+}
+
+#palabra-1#palabra-2
+{
+    font-weight: normal;
+    text-align: center;
+}
+
+#palabra-3
+{
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#act-res
+{
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    flex-grow: 1;
+}
+
+.slide section
+{
+    width: 100%;
+    height: 100%;
+}
+
+.background
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #424242;
+}
+
+.header
+{
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header p
+{
+    z-index: 1;
+}
+
+.header-icons
+{
+    position: absolute;
+    right: 0;
+    box-sizing: border-box;
+    z-index: 1;
+    flex: 0 2 content;
+    display: flex;
+    flex-direction: row;
+    height: 40%;
+    gap: 1rem;
+    padding-right: 2rem;
+}
+
+.header-icons img
+{
+    color: #fff;
+    margin: 0;
+    width: auto;
+    height: 100%;
+}
+
+.header-bg
+{
+    position: absolute;
+    background-color: #262626;
+    inset: 0;
+}
+
+.center-header
+{
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    align-self: center;
+}
+
+.center-header .header-bg
+{
+    border-radius: 2rem;
+}
+
+.center-header p
+{
+    z-index: 1;
+}
+
+.panel
+{
+    border-radius: 2rem;
+    background-color: #262626;
+    padding: 2rem 2rem;
+    transition: flex-grow 2s ease-in-out;
+}
+
+.panel.fragment
+{
+    position: absolute;
+    z-index: -1;
+}
+
+.panel.fragment.visible
+{
+    position: relative;
+    display: block;
+    z-index: 0;
+}
+
+.panel p
+{
+    text-align: left;
+}
+
+.panel .center-text
+{
+    text-align: center;
+}
+
+.img
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img a
+{
+    color: #858585 !important;
+    font-size: medium;
+    text-align: center;
+}
+
+.img a:hover
+{
+    color: #858585 !important;
+}
+
+a
+{
+    color: #9b9be4 !important;
+}
+
+.slide-number a
+{
+    color: #fff !important;
+}
+
+a:hover
+{
+    color: #9b9be4;
+    text-decoration: underline;
+}
+
+h5 a
+{
+    color: #9b9be4 !important;
+}
+
+.horizontal
+{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.vertical
+{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.small-text
+{
+    font-size: 1.75rem !important; 
+    margin: 10px 0 !important;
+}
+
+.center-text
+{
+    text-align: center;
+}
+
+.act-panel
+{
+    gap: 1rem;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}

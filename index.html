@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Listas</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-color="#000">
+					<div class="background" style="justify-content: center;">
+						<div>
+							<h3>Fundamentos de programación</h3>
+							<h1>Listas</h1>
+							<h5>Presentación por <a href="https://github.com/Zagusan">Santiago Piña</a></h5>
+						</div>
+					</div>
+				</section>
+
+				<section data-background-color="#000">
+					<section data-auto-animate>
+						<div class="background" style="justify-content: center;">
+							<div class="center-header">
+								<p><b>¿Qué es una lista?</b></p>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>¿Qué es una lista?</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="horizontal" style="margin: 2rem 2rem;">
+								<div class="panel" style="width: 70%;">
+									<p>En Python, la lista es un contenedor <b>ordenado</b> y <b>mutable</b>. Esto significa que:</p>
+									<ul>
+										<li>Puede tener muchas variables adentro</li>
+										<li>Se le da importancia al orden de los elementos</li>
+										<li>Se puede modificar después de ser creado</li>
+									</ul>
+								</div>
+								<div class="img" style="height: 100%;">
+									<img src="res/list.png">
+									<a href="https://www.flaticon.com/free-icon/listed_11450009">
+										Icono creado por Uniconlabs
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#000">
+					<section data-auto-animate>
+						<div class="background" style="justify-content: center;">
+							<div class="center-header">
+								<p><b>¿Cómo usar las listas?</b></p>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>¿Cómo usar las listas?</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="horizontal" style="margin: 2rem 2rem; justify-content: center;">
+								<div class="panel" style="width: 50%;">
+									<h4>Declaración</h4>
+									<p class="center-text small-text">Lista vacía</p>
+									<pre><code data-trim class="language-python">
+										miLista = []
+									</code></pre>
+									<pre><code data-trim class="language-python">
+										miLista = list()
+									</code></pre>
+									<p class="center-text small-text">Lista con elementos</p>
+									<pre><code data-trim class="language-python">
+										miLista = [1, 2, 3, 4, 5]
+									</code></pre>
+									<pre><code data-trim class="language-python">
+										miLista = ["¡Hola", "mundo!"]
+									</code></pre>
+									<pre><code data-trim class="language-python">
+										miLista = [1, "texto", 2, True]
+									</code></pre>
+								</div>
+								<div class="panel fragment" style="width: 50%;" data-id="usos">
+									<h4>Usos (1)</h4>
+									<p class="center-text small-text">Acceder a un elemento específico</p>
+									<pre><code data-trim class="language-python">
+										miLista = [1, "texto", 2, True]
+										print(miLista[0]) # Imprime 1
+										print(miLista[1]) # Imprime texto
+										print(miLista[3]) # Imprime True
+									</code></pre>
+									<p class="center-text small-text">Iterar sobre los elementos</p>
+									<pre><code data-trim class="language-python">
+										for elemento in miLista:
+											print(elemento)
+									</code></pre>
+								</div>
+							</div>
+
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>¿Cómo usar las listas?</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="horizontal" style="margin: 2rem 2rem; justify-content: center;">
+								<div class="panel" style="width: 50%;" data-id="usos">
+									<h4>Usos (2)</h4>
+									<p class="center-text small-text">Almacenar muchos datos</p>
+									<pre><code data-trim class="language-python">
+										for _ in range(5):
+											numero = input("Escribe un número: ")
+											miLista.append(numero)
+									</code></pre>
+									<p class="center-text small-text">Ordenar números</p>
+									<pre><code data-trim class="language-python">
+										miLista = [5, 3, 7, 4]
+										miLista.sort()
+										print(miLista) # Imprime [3, 4, 5, 7]
+									</code></pre>
+								</div>
+								<div class="panel fragment" style="width: 50%;" data-id="usos">
+									<h4>Métodos</h4>
+									<ul>
+										<li class="small-text"><code>miLista.append(x)</code>: Añade un elemento al final de la lista</li>
+										<li class="small-text"><code>miLista.pop(i)</code>: Elimina el elemento ubicado en <code>i</code></li>
+										<li class="small-text"><code>miLista.insert(i, x)</code>: Coloca un elemento en <code>i</code> y desplaza los demás hacia la derecha</li>
+										<li class="small-text"><code>miLista.remove(x)</code>: Elimina el primer valor que sea igual que <code>x</code></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>¿Cómo usar las listas?</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="vertical" style="margin: 2rem 2rem; align-items: center; justify-content: center; height: 100%;">
+								<div class="panel">
+									<h4>Más información</h4>
+									<a class="small-text" href="https://docs.python.org/3/tutorial/datastructures.html">Documentación oficial de Python</a>
+								</div>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#000">
+					<section data-auto-animate>
+						<div class="background" style="justify-content: center;">
+							<div class="center-header">
+								<p><b>Actividad</b></p>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>Actividad</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="horizontal" style="margin: 2rem 2rem; justify-content: center;">
+								<div class="panel" style="width: 50%;">
+									<h4>Instrucciones</h4>
+									<ul>
+										<li>Entre todo el grupo, vamos a crear una historia</li>
+										<li>Cada persona puede añadir únicamente una palabra</li>
+										<li>Solo las 3 últimas palabras serán visibles</li>
+										<li>No pueden coordinarse para decidir qué palabras usar</li>
+									</ul>
+								</div>
+								<div class="img" style="height: 100%;">
+									<img src="res/open-book.png">
+									<a href="https://www.flaticon.com/free-icon/open-book_9809619" title="open book icons">
+										Icono creado por Freepik
+									</a>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section data-background-color="#000" data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>Actividad</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="vertical" style="justify-content: center; align-items: center; height: 100%; padding: 10%;">
+								<div id="act-widget" data-id="act-panel" class="panel horizontal act-panel" style="overflow-x: auto;">
+									<div id="palabra-1" class="act-palabra">Había</div>
+									<div id="palabra-2" class="act-palabra act-palabra-med">una</div>
+									<div id="palabra-3" class="act-palabra">vez...</div>
+								</div>
+								<div class="horizontal" style="gap: 1rem; width: 60%;">
+									<input id="act-input" placeholder="Escribe tu palabra">
+									<button id="act-button">Añadir</button>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section data-background-color="#000" data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>Actividad</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="vertical" style="justify-content: center; align-items: center; height: 0; flex-grow: 1; padding: 10%;">
+								<div id="act-widget" data-id="act-panel" class="panel vertical" style="width: 70%; height: 100%; gap: 0;">
+									<h4>Historia final</h4>
+									<div id="act-res"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#000">
+					<section data-auto-animate>
+						<div class="background" style="justify-content: center;">
+							<div class="center-header">
+								<p><b>¡A programar!</b></p>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>¡A programar!</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="horizontal" style="margin: 2rem 2rem; height: 0; flex-grow: 1;">
+								<div class="panel" style="width: 70%;">
+									<p>Vamos a hacer un programa que:</p>
+									<ul>
+										<li>Muestre un mensaje inicial (Por ejemplo, <code>"Había una vez..."</code>)</li>
+										<li>Enseñe las 3 últimas palabras</li>
+										<li>Pida palabras continuamente y las añada a una lista</li>
+										<li>Revele la historia completa después de introducir una cadena específico (<code>salir()</code>)</li>
+									</ul>
+								</div>
+								<div class="img" style="height: 100%;">
+									<img src="res/codigo-python-c.jpg" style="border-radius: 1rem;">
+									<a href="https://pixabay.com/photos/data-computer-programming-codes-5606639/">
+										Imagen creada por suixin390
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</section>
+				</section>
+
+				<section data-background-color="#000">
+					<section data-auto-animate>
+						<div class="background" style="justify-content: center;">
+							<div class="center-header">
+								<p><b>Créditos</b></p>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="background">
+							<div class="header">
+								<p><b>Créditos</b></p>
+								<div class="header-icons">
+									<img src="res/minus.svg">
+									<img src="res/square.svg">
+									<img src="res/x.svg">
+								</div>
+								<div class="header-bg" data-id="header"></div>
+							</div>
+							<div class="horizontal" style="margin: 2rem 2rem; align-items: center; justify-content: center; flex-grow: 1;">
+								<div class="panel vertical" style="width: 33%; height: 50%;">
+									<img src="res/reveal-white-text.svg">
+									<a style="color: #fff !important;" href="https://github.com/hakimel/reveal.js/blob/master/LICENSE">Ver licencia</a>
+								</div>
+								<div class="panel vertical" style="width: 33%; height: 50%;">
+									<div class="horizontal" style="justify-content: center; align-items: center; gap: 1.25rem; width: 100%;">
+										<img style="width: 8rem;" src="res/lucide-logo-dark.svg">
+										<h3>Lucide</h3>
+									</div>
+									<a style="color: #fff !important;" href="https://lucide.dev/license">Ver licencia</a>
+								</div>
+							</div>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="actividad.js"></script>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				width: 1280,
+				height: 720,
+				margin: 0,
+				center: true,
+				progress: false,
+				slideNumber: "c/t",
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
