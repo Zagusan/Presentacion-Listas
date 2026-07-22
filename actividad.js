@@ -27,7 +27,14 @@ function onSubmit(event)
 {
     event.preventDefault()
 
-    var palabra = input.value.split(" ")[0];
+    let palabras = input.value.trimEnd().split(" ");
+    if (palabras.length > 1)
+    {
+        confirm("¡No se vale hacer trampa! Solo puede haber una palabra.");
+        return;
+    }
+
+    let palabra = palabras[0];
 
     if(typeof palabra === 'string' && palabra.trim().length > 0)
     {
