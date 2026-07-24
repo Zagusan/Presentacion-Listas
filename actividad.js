@@ -23,28 +23,45 @@ function updateResultDiv(words)
     resultDiv.textContent = words.join(" ");
 }
 
-function onSubmit(event)
-{
-    event.preventDefault()
+const words = ["Había", "una", "vez"];
 
-    let palabras = input.value.trimEnd().split(" ");
-    if (palabras.length > 1)
+async function onSubmit(event)
+{
+    event.preventDefault();
+
+    const palabra = input.value.trim();
+
+    if (palabra === "" || palabra.includes(" "))
     {
-        confirm("¡No se vale hacer trampa! Solo puede haber una palabra.");
+        confirm("Solo puede haber una palabra.");
         return;
     }
 
-    let palabra = palabras[0];
-
-    if(typeof palabra === 'string' && palabra.trim().length > 0)
+    try
     {
+        const respuesta = await fetch(
+            `https://freedictionaryapi.com/api/v1/entries/es/${encodeURIComponent(palabra)}`
+        );
+
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok || datos.entries.length === 0)
+        {
+            confirm("Esa palabra no existe.");
+            return;
+        }
+
         words.push(palabra);
         updateWordWidget(words);
         updateResultDiv(words);
+
+        input.value = "";
     }
-    input.value = "";
+    catch
+    {
+        confirm("No se pudo conectar con el diccionario.");
+    }
 }
 
-var words = ["Había", "una", "vez"];
 
 form.addEventListener("submit", onSubmit)
