@@ -78,16 +78,20 @@
 								</div>
 								<div class="header-bg" data-id="header"></div>
 							</div>
-							<div class="vertical" style="justify-content: center; align-items: center; height: 100%; padding: 10%;">
-								<div id="act-widget" data-id="act-panel" class="panel horizontal act-panel" style="overflow-x: auto;">
+							<div class="vertical" style="justify-content: center; align-items: center; height: 100%; padding: 0 10%; gap: 0;">
+								<div id="act-widget" data-id="act-panel" class="panel horizontal act-panel" style="overflow-x: auto; justify-content: safe center;">
 									<div id="palabra-1" class="act-palabra">Había</div>
 									<div id="palabra-2" class="act-palabra act-palabra-med">una</div>
 									<div id="palabra-3" class="act-palabra">vez...</div>
 								</div>
-								<form class="horizontal" style="gap: 1rem; width: 60%;" id="act-form">
+								<form class="horizontal" style="gap: 1rem; width: 60%; margin-top: 4rem;" id="act-form">
 									<input type="text" id="act-input" placeholder="Escribe tu palabra">
 									<button type="submit" id="act-button">Añadir</button>
 								</form>
+							</div>
+							<div class="horizontal" style="gap: 0.25rem; justify-content: center; margin-bottom: 0.5rem;">
+								<input type="checkbox" id="usar-diccionario" name="usar-diccionario" style="flex: 0; margin: 0 0.5rem;">
+								<label for="usar-diccionario" style="font-size: 1rem; margin: 0;">Revisar palabras contra un diccionario</label>
 							</div>
 						</div>
 					</section>

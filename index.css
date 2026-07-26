@@ -38,10 +38,14 @@ button:active
     background-color: #3737c8;
 }
 
-#palabra-1#palabra-2
+#palabra-1,
+#palabra-2,
+#palabra-3
 {
     font-weight: normal;
     text-align: center;
+    word-break: keep-all;
+    white-space: nowrap;
 }
 
 #palabra-3

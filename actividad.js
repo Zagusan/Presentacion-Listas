@@ -6,10 +6,13 @@ const palabra1 = document.getElementById("palabra-1");
 const palabra2 = document.getElementById("palabra-2");
 const palabra3 = document.getElementById("palabra-3");
 
-const resultDiv = document.getElementById("act-res")
+const resultDiv = document.getElementById("act-res");
 
-const form = document.getElementById("act-form")
-const input = document.getElementById("act-input")
+const form = document.getElementById("act-form");
+const input = document.getElementById("act-input");
+
+const usarDiccionario = document.getElementById("usar-diccionario");
+usarDiccionario.checked = true;
 
 function updateWordWidget(words)
 {
@@ -25,29 +28,14 @@ function updateResultDiv(words)
 
 const words = ["Había", "una", "vez"];
 
-async function onSubmit(event)
+async function checkAgainstDictionary(word)
 {
-    event.preventDefault();
-
-    const palabra = input.value.trim();
-
-    if (palabra === "")
-    {
-        confirm("No se escribió ninguna palabra.");
-        return;
-    }
-    if (palabra.includes(" "))
-    {
-        confirm("Solo puede haber una palabra.");
-        return;
-    }
-
     try
     {
         // Elimina cualquier cantidad de puntuación al principio y al final
-        const palabra_sin_puntuacion = palabra.replaceAll(/^[.,;:?!¿¡]+|[.,;:?!¿¡]+$/g, ""); 
+        const word_no_punctuation = word.replaceAll(/^[.,;:?!¿¡]+|[.,;:?!¿¡]+$/g, ""); 
         const respuesta = await fetch(
-            `https://freedictionaryapi.com/api/v1/entries/es/${encodeURIComponent(palabra_sin_puntuacion)}`
+            `https://freedictionaryapi.com/api/v1/entries/es/${encodeURIComponent(word_no_punctuation)}`
         );
 
         const datos = await respuesta.json();
@@ -55,24 +43,47 @@ async function onSubmit(event)
         if (!respuesta.ok)
         {
             confirm(`Error ${respuesta.status} al conectarse al diccionario.`);
-            return;
+            return false;
         }
 
         if (datos.entries.length === 0)
         {
             confirm("Esa palabra no existe.");
-            return;
+            return false;
         }
-
-        words.push(palabra);
-        updateWordWidget(words);
-        updateResultDiv(words);
-
-        input.value = "";
+        return true;
     }
     catch
     {
         confirm("No se pudo conectar con el diccionario.");
+        return false;
+    }
+}
+
+async function onSubmit(event)
+{
+    event.preventDefault();
+
+    const word = input.value.trim();
+
+    if (word === "")
+    {
+        confirm("No se escribió ninguna palabra.");
+        return;
+    }
+    if (word.includes(" "))
+    {
+        confirm("Solo puede haber una palabra.");
+        return;
+    }
+
+    if (!usarDiccionario.checked || await checkAgainstDictionary(word))
+    {
+        words.push(word);
+        updateWordWidget(words);
+        updateResultDiv(words);
+
+        input.value = "";
     }
 }
 
