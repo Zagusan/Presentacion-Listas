@@ -31,7 +31,12 @@ async function onSubmit(event)
 
     const palabra = input.value.trim();
 
-    if (palabra === "" || palabra.includes(" "))
+    if (palabra === "")
+    {
+        confirm("No se escribió ninguna palabra.");
+        return;
+    }
+    if (palabra.includes(" "))
     {
         confirm("Solo puede haber una palabra.");
         return;
@@ -39,13 +44,21 @@ async function onSubmit(event)
 
     try
     {
+        // Elimina cualquier cantidad de puntuación al principio y al final
+        const palabra_sin_puntuacion = palabra.replaceAll(/^[.,;:?!¿¡]+|[.,;:?!¿¡]+$/g, ""); 
         const respuesta = await fetch(
-            `https://freedictionaryapi.com/api/v1/entries/es/${encodeURIComponent(palabra)}`
+            `https://freedictionaryapi.com/api/v1/entries/es/${encodeURIComponent(palabra_sin_puntuacion)}`
         );
 
         const datos = await respuesta.json();
 
-        if (!respuesta.ok || datos.entries.length === 0)
+        if (!respuesta.ok)
+        {
+            confirm(`Error ${respuesta.status} al conectarse al diccionario.`);
+            return;
+        }
+
+        if (datos.entries.length === 0)
         {
             confirm("Esa palabra no existe.");
             return;
